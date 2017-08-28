@@ -9,12 +9,12 @@ export interface IAppState {
 export const INITIAL_STATE: IAppState = { 
   todos: [],
   lastUpdate: null
-}
+};
 
 export function rootReducer(state: IAppState, action): IAppState {
   switch (action.type) {
     case ADD_TODO: 
-      var newTodo = { id: state.todos.length + 1, title: action.title };
+      let newTodo = { id: state.todos.length + 1, title: action.title };
 
       return tassign(state, {
         // Instead of the push() method, we use the concat() method because the former mutates
@@ -29,10 +29,10 @@ export function rootReducer(state: IAppState, action): IAppState {
       // we should create a copy of the item to be modified and apply the mutations using tassing.
 
       // So, first we need to find the item to be modified. Here, we are finding it by it's id. 
-      var todo = state.todos.find(t => t.id === action.id);
+      let todo = state.todos.find(t => t.id === action.id);
 
       // Now, we need to find the position of this item in the array. 
-      var index = state.todos.indexOf(todo);
+      let index = state.todos.indexOf(todo);
 
       return tassign(state, {
         todos: [
